@@ -6,6 +6,7 @@ class Board:
     """Game board for Battleship class. Sets board size, the player's name,
     and displays the boards for both the player and computer.
     """
+
     def __init__(self, size=8):
         self.size = size
         self.grid = [[' '] * size for _ in range(size)]
@@ -33,6 +34,12 @@ class Board:
                     self.grid[row][col] = '@'
                     break
 
+    def valid_cl(self, col):
+        return col in self.col_labels
+
+    def valid_rw(self, row):
+        return row in self.row_labels
+
 
 def new_game():
     """New game function.
@@ -56,6 +63,26 @@ def new_game():
     player_board.display(show_ships=True)
     print("\nComputer's Board:")
     computer_board.display(show_ships=False)
+
+    while True:
+
+        while True:
+            col = input("\nEnter a column (A-H): ").upper()
+            if player_board.valid_cl(col):
+                break
+            else:
+                print("Invalid column. You must choose between (A-H).")
+                print("Please try again.")
+
+        while True:
+            row = input("\nEnter a row (1-8): ")
+            if player_board.valid_rw(row):
+                break
+            else:
+                print("Invalid row. You must choose between (1-8).")
+                print("Please try again.")
+
+        print(f"Your choice is: {col}{row}")
 
 
 # Call the new_game function to start the game
