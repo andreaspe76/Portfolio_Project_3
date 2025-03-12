@@ -99,7 +99,35 @@ def new_game():
                 print("Invalid row. You must choose between (1-8).")
                 print("Please try again.")
 
-        print(f"Your choice is: {col}{row}")
+        print(f"Your choice is: {col}{row}.")
+
+        col_index = player_board.col_labels.index(col)
+        row_index = player_board.row_labels.index(row)
+
+        # Check if the player's move is a hit or miss
+        player_hit = computer_board.check_move(col_index, row_index)
+        computer_board.mark_move(col_index, row_index, player_hit)
+
+        # Computer's turn
+        while True:
+            comp_cl_index = randint(0, computer_board.size - 1)
+            comp_rw_index = randint(0, computer_board.size - 1)
+            if player_board.grid[comp_rw_index][comp_cl_index] not in [
+                    'X', '*']:
+                break
+
+        # Check if the computer's move is a hit or miss
+        computer_hit = player_board.check_move(col_index, comp_rw_index)
+        player_board.mark_move(comp_cl_index, comp_rw_index, computer_hit)
+
+        comp_cl = computer_board.col_labels[comp_cl_index]
+        comp_rw = computer_board.row_labels[comp_rw_index]
+
+        print(f"Computer's choice is: {comp_cl}{comp_rw}.")
+        print(f"\n{player_name}'s move was a hit!" if player_hit
+              else f"\n{player_name}'s move was a miss.")
+        print(f"Computer's move was a hit!" if computer_hit
+              else f"Computer's move was a miss.")
 
 
 # Call the new_game function to start the game
