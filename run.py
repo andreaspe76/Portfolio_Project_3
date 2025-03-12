@@ -13,11 +13,16 @@ class Board:
         self.col_labels = 'ABCDEFGH'
 
     def display(self):
+        """Print the board with row and column labels.
+        """
         print('  ' + ' '.join(self.col_labels))
         for idx, row in enumerate(self.grid):
             print(self.row_labels[idx] + '|'.join(row) + '|')
 
     def place_ship(self):
+        """Place 4 ships randomly
+        on the player's and computer's boards.
+        """
         for _ in range(4):
             while True:
                 row = randint(0, self.size - 1)
@@ -36,12 +41,15 @@ def new_game():
     print("\n")
     print(f"Hello, {player_name}! Let's play Battleship.")
 
+    # Create player and computer boards
     player_board = Board()
     computer_board = Board()
 
+    # Place ships on the boards
     player_board.place_ship()
     computer_board.place_ship()
 
+    # Display the boards
     print(f"\n{player_name}'s Board:")
     player_board.display()
     print("\nComputer's Board:")
