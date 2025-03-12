@@ -35,9 +35,13 @@ class Board:
                     break
 
     def valid_cl(self, col):
+        """Check if the player's column choice is valid.
+        """
         return col in self.col_labels
 
     def valid_rw(self, row):
+        """Check if the player's row choice is valid.
+        """
         return row in self.row_labels
 
 
