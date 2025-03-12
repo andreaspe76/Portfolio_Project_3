@@ -1,4 +1,4 @@
-# Import randit from random module
+"""Import randint from random module"""
 from random import randint
 
 
