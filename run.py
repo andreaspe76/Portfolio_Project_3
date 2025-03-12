@@ -20,7 +20,7 @@ class Board:
         """
         print('  ' + ' '.join(self.col_labels))
         for idx, row in enumerate(self.grid):
-            display_row = [cell if (cell == '' or show_ships
+            display_row = [cell if (cell == ' ' or show_ships
                                     or cell in ['*', 'X'])
                            else ' ' for cell in row]
             print(self.row_labels[idx] + '|' + '|'.join(display_row) + '|')
@@ -38,17 +38,17 @@ class Board:
                     break
 
     def valid_cl(self, col):
-        """Check if the player's column choice is valid.
+        """Checks if the player's column choice is valid.
         """
         return col in self.col_labels
 
     def valid_rw(self, row):
-        """Check if the player's row choice is valid.
+        """Checks if the player's row choice is valid.
         """
         return row in self.row_labels
 
     def check_move(self, col_index, row_index):
-        """Check if the player's move is a hit or miss.
+        """Checks if the player's move is a hit or miss.
         """
         return self.grid[row_index][col_index] == '@'
 
