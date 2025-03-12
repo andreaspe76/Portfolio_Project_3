@@ -5,6 +5,8 @@ from random import randint
 class Board:
     """Game board for Battleship class. Sets board size, the player's name,
     and displays the boards for both the player and computer.
+    Checks if the moves for both sides were a hit or miss, and
+    displays it on the game board.
     """
 
     def __init__(self, size=8):
@@ -18,9 +20,10 @@ class Board:
         """
         print('  ' + ' '.join(self.col_labels))
         for idx, row in enumerate(self.grid):
-            display_row = [cell if cell == '' or show_ships
+            display_row = [cell if (cell == '' or show_ships
+                                    or cell in ['*', 'X'])
                            else ' ' for cell in row]
-            print(self.row_labels[idx] + '|'.join(display_row) + '|')
+            print(self.row_labels[idx] + '|' + '|'.join(display_row) + '|')
 
     def place_ship(self):
         """Place 4 ships randomly
