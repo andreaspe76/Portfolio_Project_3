@@ -13,10 +13,18 @@ class Board:
         self.col_labels = 'ABCDEFGH'
 
     def display(self):
-        # Print column labels
         print('  ' + ' '.join(self.col_labels))
         for idx, row in enumerate(self.grid):
             print(self.row_labels[idx] + '|'.join(row) + '|')
+
+    def place_ship(self):
+        for _ in range(4):
+            while True:
+                row = randint(0, self.size - 1)
+                col = randint(0, self.size - 1)
+                if self.grid[row][col] == ' ':
+                    self.grid[row][col] = '@'
+                    break
 
 
 def new_game():
@@ -30,6 +38,9 @@ def new_game():
 
     player_board = Board()
     computer_board = Board()
+
+    player_board.place_ship()
+    computer_board.place_ship()
 
     print(f"\n{player_name}'s Board:")
     player_board.display()
