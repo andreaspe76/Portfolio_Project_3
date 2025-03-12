@@ -12,12 +12,14 @@ class Board:
         self.row_labels = [str(i+1) for i in range(size)]
         self.col_labels = 'ABCDEFGH'
 
-    def display(self):
+    def display(self, show_ships=False):
         """Print the board with row and column labels.
         """
         print('  ' + ' '.join(self.col_labels))
         for idx, row in enumerate(self.grid):
-            print(self.row_labels[idx] + '|'.join(row) + '|')
+            display_row = [cell if cell == '' or show_ships
+                           else ' ' for cell in row]
+            print(self.row_labels[idx] + '|'.join(display_row) + '|')
 
     def place_ship(self):
         """Place 4 ships randomly
@@ -51,9 +53,9 @@ def new_game():
 
     # Display the boards
     print(f"\n{player_name}'s Board:")
-    player_board.display()
+    player_board.display(show_ships=True)
     print("\nComputer's Board:")
-    computer_board.display()
+    computer_board.display(show_ships=False)
 
 
 # Call the new_game function to start the game
