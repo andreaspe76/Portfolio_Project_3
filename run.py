@@ -126,9 +126,15 @@ def new_game():
         print(f"Computer's choice is: {comp_cl}{comp_rw}.")
         print(f"\n{player_name}'s move was a hit!" if player_hit
               else f"\n{player_name}'s move was a miss.")
-        print(f"Computer's move was a hit!" if computer_hit
-              else f"Computer's move was a miss.")
+        print("Computer's move was a hit!" if computer_hit
+              else "Computer's move was a miss.")
+
+        # Display the boards after each move
+        print(f"\n{player_name}'s Board:")
+        player_board.display(show_ships=True)
+        print("\nComputer's Board:")
+        computer_board.display(show_ships=False)
 
 
-# Call the new_game function to start the game
+# Call the new_game function to start a new game
 new_game()
