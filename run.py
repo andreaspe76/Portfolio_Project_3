@@ -84,6 +84,8 @@ def new_game():
     print("\nComputer's Board:")
     computer_board.display(show_ships=False)
 
+    player_moves = set()
+
     while True:
 
         while True:
@@ -101,6 +103,13 @@ def new_game():
             else:
                 print("Invalid row. You must choose between (1-8).")
                 print("Please try again.")
+
+        move = (col, row)
+        if move in player_moves:
+            print("This move has already been made. Please try again.")
+            continue
+
+        player_moves.add(move)
 
         print(f"Your choice is: {col}{row}.")
 
