@@ -120,7 +120,7 @@ def new_game():
                 break
 
         # Check if the computer's move is a hit or miss
-        computer_hit = player_board.check_move(col_index, comp_rw_index)
+        computer_hit = player_board.check_move(comp_cl_index, comp_rw_index)
         player_board.mark_move(comp_cl_index, comp_rw_index, computer_hit)
 
         comp_cl = computer_board.col_labels[comp_cl_index]
