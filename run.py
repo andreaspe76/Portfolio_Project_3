@@ -48,12 +48,12 @@ class Board:
         return row in self.row_labels
 
     def check_move(self, col_index, row_index):
-        """Checks if the player's move is a hit or miss.
+        """Checks if the player's and computer's move is a hit or miss.
         """
         return self.grid[row_index][col_index] == '@'
 
     def mark_move(self, col_index, row_index, hit):
-        """Mark the player's and computer's move on the board.
+        """Marks the player's and computer's move on the board.
         """
         if hit:
             self.grid[row_index][col_index] = '*'
