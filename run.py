@@ -103,7 +103,7 @@ def new_game():
             if player_board.valid_cl(col):
                 break
             else:
-                print("Invalid column. You must choose between (A-H).")
+                print("Invalid column choice. You must choose between (A-H).")
                 print("Please try again.")
 
         while True:
@@ -111,7 +111,7 @@ def new_game():
             if player_board.valid_rw(row):
                 break
             else:
-                print("Invalid row. You must choose between (1-8).")
+                print("Invalid row choice. You must choose between (1-8).")
                 print("Please try again.")
 
         move = (col, row)
