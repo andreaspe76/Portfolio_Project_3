@@ -76,7 +76,7 @@ def new_game():
     Starts a new game of Battleship.
     """
     print("Welcome to my Battleship game!")
-    player_name = input("What is your name? ")
+    player_name = input("What is your name?\n")
     print("\n")
     print(f"Hello, {player_name}! Let's play Battleship.")
 
@@ -101,7 +101,7 @@ def new_game():
     while True:
 
         while True:
-            col = input("\nEnter a column (A-H): ").upper()
+            col = input("\nEnter a column (A-H):\n").upper()
             if player_board.valid_cl(col):
                 break
             else:
@@ -109,7 +109,7 @@ def new_game():
                 print("Please try again.")
 
         while True:
-            row = input("\nEnter a row (1-8): ")
+            row = input("\nEnter a row (1-8):\n")
             if player_board.valid_rw(row):
                 break
             else:
