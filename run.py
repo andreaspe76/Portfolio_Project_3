@@ -87,6 +87,8 @@ def new_game():
     computer_board.place_ship()
 
     # Display the boards
+    print("'@ is for ships, "
+          "'X' is for miss, and '*' is for hit.")
     print(f"\n{player_name}'s Board:")
     player_board.display(show_ships=True)
     print("\nComputer's Board:")
