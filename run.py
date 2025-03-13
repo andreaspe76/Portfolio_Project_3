@@ -14,6 +14,8 @@ class Board:
         self.grid = [[' '] * size for _ in range(size)]
         self.row_labels = [str(i+1) for i in range(size)]
         self.col_labels = 'ABCDEFGH'
+        self.player_hits = 0
+        self.computer_hits = 0
 
     def display(self, show_ships=False):
         """Print the board with row and column labels.
@@ -129,6 +131,8 @@ def new_game():
         # Check if the player's move is a hit or miss
         player_hit = computer_board.check_move(col_index, row_index)
         computer_board.mark_move(col_index, row_index, player_hit)
+        if player_hit:
+            player_board.player_hits += 1
 
         # Computer's turn
         while True:
@@ -141,6 +145,8 @@ def new_game():
         # Check if the computer's move is a hit or miss
         computer_hit = player_board.check_move(comp_cl_index, comp_rw_index)
         player_board.mark_move(comp_cl_index, comp_rw_index, computer_hit)
+        if computer_hit:
+            computer_board.computer_hits += 1
 
         comp_cl = computer_board.col_labels[comp_cl_index]
         comp_rw = computer_board.row_labels[comp_rw_index]
@@ -162,12 +168,18 @@ def new_game():
             print(f"\nCongratulations {player_name}!")
             print("You have sunk all the computer's ships!")
             print("You win!")
+            print(f"\nThe final score is: {player_name}:"
+                  f"{player_board.player_hits}"
+                  f" - Computer: {computer_board.computer_hits}")
             break
 
         if player_board.all_ships_sunk():
             print("\nAhhh! Darn it!")
             print("The computer has sunk all your ships!")
             print("You lose!")
+            print(f"\nThe final score is: {player_name}:"
+                  f"{player_board.player_hits}"
+                  f" - Computer: {computer_board.computer_hits}")
             break
 
 
