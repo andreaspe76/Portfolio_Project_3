@@ -157,6 +157,10 @@ def new_game():
         print("Computer's move was a hit!" if computer_hit
               else "Computer's move was a miss.")
 
+        # Display the current score
+        print(f"\n{player_name}'s score: {player_board.player_hits}"
+              f" - Computer's score: {computer_board.computer_hits}")
+
         # Display the boards after each move
         print(f"\n{player_name}'s Board:")
         player_board.display(show_ships=True)
