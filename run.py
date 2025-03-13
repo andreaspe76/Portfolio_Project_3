@@ -60,6 +60,14 @@ class Board:
         else:
             self.grid[row_index][col_index] = 'X'
 
+    def all_ships_sunk(self):
+        """Checks if all the ships have been sunk.
+        """
+        for row in self.grid:
+            if '@' in row:
+                return False
+        return True
+
 
 def new_game():
     """New game function.
@@ -146,6 +154,19 @@ def new_game():
         player_board.display(show_ships=True)
         print("\nComputer's Board:")
         computer_board.display(show_ships=False)
+
+        # Check for end game conditions
+        if computer_board.all_ships_sunk():
+            print(f"\nCongratulations {player_name}!")
+            print("You have sunk all the computer's ships!")
+            print("You win!")
+            break
+
+        if player_board.all_ships_sunk():
+            print("\nAhhh! Darn it!")
+            print("The computer has sunk all your ships!")
+            print("You lose!")
+            break
 
 
 # Call the new_game function to start a new game
