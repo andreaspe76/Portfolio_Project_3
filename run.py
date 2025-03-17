@@ -76,7 +76,14 @@ def new_game():
     Starts a new game of Battleship.
     """
     print("Welcome to my Battleship game!")
-    player_name = input("What is your name?\n")
+
+    # Loop to ensure that the player enters a name
+    while True:
+        player_name = input("What is your name?\n").strip()
+        if player_name:
+            break
+        else:
+            print("You must enter a name. Please try again.")
     print("\n")
     print(f"Hello, {player_name}! Let's play Battleship.")
 
