@@ -108,8 +108,8 @@ def new_game():
     while True:
 
         while True:
-            col = input("\nEnter a column (A-H):\n").upper()
-            if player_board.valid_cl(col):
+            col = input("\nEnter a column (A-H):\n").strip().upper()
+            if col and player_board.valid_cl(col):
                 break
             else:
                 print("Invalid column choice. You must choose between (A-H).")
