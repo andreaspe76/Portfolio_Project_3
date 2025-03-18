@@ -1,6 +1,8 @@
 """Import randint from random module"""
 from random import randint
 
+import os
+
 
 class Board:
     """Game board for Battleship class. Sets board size, the player's name,
@@ -71,6 +73,12 @@ class Board:
         return True
 
 
+def clear_scr():
+    """Clear the terminal screen.
+    """
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+
 def new_game():
     """New game function.
     Starts a new game of Battleship.
@@ -129,6 +137,9 @@ def new_game():
             continue
 
         player_moves.add(move)
+
+        # Clear the screen
+        clear_scr()
 
         print(f"Your choice is: {col}{row}.")
 
