@@ -58,7 +58,8 @@ Methods to validate the player's guess **valid_cl**, **valid_rw**.
 Also to validate if the players guesses are misses or hits **check_move** and to mark them on the **boards mark_move**.
 Finally a method to check if all the ships of one side have been sunk **all_ships_sunk**. 
 
-The **new_game** function uses the Board class and it's methods to run the game, and also displays text needed for the player to visualy follow the action.
+The **new_game** function uses the Board class and it's methods to run the game, and also displays text needed for the player to visualy follow the action.<br>
+Also clears the terminal using the **clear_scr()** function, after the player makes a move choice, to keep the terminal decluttered.
 
 
 ## Testing
@@ -83,7 +84,9 @@ In the case of the name input a **while True** statement with an **if** conditio
 - There are no known bugs remaining.
 
 ### Validator Testing
-- No errors are returned from https://pep8ci.herokuapp.com/
+- No errors are returned from https://pep8ci.herokuapp.com/<br>
+<img src="images/code_error_validation.png">
+
 
 
 ## Deployment
