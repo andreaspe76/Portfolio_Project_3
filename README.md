@@ -5,7 +5,7 @@ This is a Python terminal game, which runs on Heroku in the mock terminal from C
 The player must try to win the game, by finding all the computer's battleships before the computer finds theirs.<br>
 Each battleship occupies one square on the board.
 
-[The live link for the game can be found here.](https://battleship-project3-ape-9cb811461226.herokuapp.com/)
+[The live link for the game can be found here.](https://project-3-battleship-game-ape-b75ff8a4f8b8.herokuapp.com/)
 
 <img src="images/all_devices_white.png">
 
