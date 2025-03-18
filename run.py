@@ -93,7 +93,16 @@ def new_game():
         else:
             print("You must enter a name. Please try again.")
     print("\n")
-    print(f"Hello, {player_name}! Let's play Battleship.")
+    print(f"Hello, {player_name}! Let's play Battleship.\n"
+          "\n"
+          "The goal of the game is to sink all the computer's ships.\n"
+          "You and the computer will take turns making moves.\n"
+          "You will be asked to make a move by entering a column and row.\n"
+          "The computer will make a move after you.\n"
+          "You cannot make a move outside of the board.\n"
+          "You cannot make the same move twice.\n"
+          "The player who sinks all their opponent's ships first,\n"
+          "wins the game.\n")
 
     # Create player and computer boards
     player_board = Board()
@@ -104,7 +113,7 @@ def new_game():
     computer_board.place_ship()
 
     # Display the boards
-    print("'@' is for ships, "
+    print("\n'@' is for ships, "
           "'X' is a miss, and '*' is a hit.")
     print(f"\n{player_name}'s Board:")
     player_board.display(show_ships=True)
